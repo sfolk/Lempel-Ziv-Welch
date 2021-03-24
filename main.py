@@ -63,31 +63,33 @@ def lzw_decode(e_seq, extra_bits = 0 ):
         c = int(e_seq[ cod_unit * i     : cod_unit * (i+1) ])
         #print('here is the c', c)
 
+        if d.get( p ) != None :
+            
+            #if the sequence was already in the dictionary 
+            #print(d.get( p ),' found p in dict, in place',  p  )
+            d_seq.append(d.get( p ))
+            if d.get(c):
+                print(d.get( c ),' found c in dict, in place',  c  )
+                d[len(d)+1] = str(d.get( p )) + str(d.get(c)[:8])
+                #print('saved ',str(d.get( p )) + str(d.get(c)[:8]),' to dictionary in position ',  len(d))
+            
+            elif c==len(d)+1:
+                #print('here is the p', p)
+                d[len(d)+1] = str(d.get( p )) + str(d.get(p)[:8])
+                #print('saved ', str(d.get( p )) + str(d.get(p)[:8]),' to dictionary in position ',  len(d))
+            else:
+                print("WARNING: the input code is not valid because the index {} wasn't in dictionary".format(c))
+                return None
+            p = c
 
-        
-        #if the sequence was already in the dictionary 
-        #print(d.get( p ),' found p in dict, in place',  p  )
-        d_seq.append(d.get( p ))
-        if d.get(c):
-            print(d.get( c ),' found c in dict, in place',  c  )
-            d[len(d)+1] = str(d.get( p )) + str(d.get(c)[:8])
-            #print('saved ',str(d.get( p )) + str(d.get(c)[:8]),' to dictionary in position ',  len(d))
-        
-        elif c==len(d)+1:
-            #print('here is the p', p)
-            d[len(d)+1] = str(d.get( p )) + str(d.get(p)[:8])
-            #print('saved ', str(d.get( p )) + str(d.get(p)[:8]),' to dictionary in position ',  len(d))
         else:
-            print("WARNING: the input code is not valid because the index {} wasn't in dictionary".format(c))
+            print("WARNING: the input code is not valid because the index {} wasn't in dictionary".format(p))
             return None
-        p = c
-
-
 
 #input : 00000001 00000011  00000001 00000011 00000001 00000011 
 e_seq = lzw_encode('0000000100000011000000010000001100000001000000110000000100000011')[0]
-print(e_seq)
 
+print(e_seq)
 
 #d_seq = lzw_decode('001000258')
 #print(d_seq)
