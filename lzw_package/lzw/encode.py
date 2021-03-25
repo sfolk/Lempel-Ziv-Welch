@@ -4,14 +4,18 @@ from bitarray import frozenbitarray
 
 
 def lzw_encode(input_seq):
-
-    if input_seq == None or len(input_seq) == 0:
-        return None, None
-
+    #instantiate variables
     unit = 8 
     e_seq = []
-    d = dict( zip( [frozenbitarray(np.binary_repr(x, 8)) for x in range(2**8)], np.arange(2**8)))
-    
+    d = dict( zip( [frozenbitarray(np.binary_repr(x, unit)) for x in range(2**unit)], np.arange(2**unit)))
+
+    #check input validity
+    if input_seq == None or len(input_seq) == 0:
+        return None, None
+    elif not set(input_seq).issubset({'0', '1'}) and bool(input_seq):
+            print("WARNING: only binary inputs are allowed")
+            return None, None
+
     if len(input_seq) % unit != 0:
         d_seq = bitarray(input_seq)
         n_added = d_seq.fill()  
@@ -21,8 +25,10 @@ def lzw_encode(input_seq):
         n_added = 0
         d_seq = frozenbitarray(input_seq)
 
-    p = d_seq[:8]
-    
+
+    #begin algorthm
+    p = d_seq[:unit]
+
     for i in range(1, int(len(d_seq)/8)):
         
         c = d_seq[8*i:8*(i+1)]

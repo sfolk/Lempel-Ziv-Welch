@@ -16,6 +16,10 @@ def lzw_decode(e_seq, extra_bits = 0 ):
     if  (len(e_seq) % cod_unit != 0 ):
         print('WARNING: the input sequence is not a multiple of 3')
         return None
+
+    elif  (e_seq.isupper() or e_seq.islower()):
+        print("WARNING: only binary inputs are allowed")
+        return None
         
     p = int(e_seq[: cod_unit])
 

@@ -26,7 +26,12 @@ def test_decode_encode(arr):
 	assert lzw_encode(m)[0] == arr
 
 
-@pytest.mark.parametrize('arr', [  '001000259000002001003', '259001000', '0012'])
+@pytest.mark.parametrize('arr', [  '001000259000002001003', '259001000', '0012', 'abc'])
 def test_validity(arr):
 	m = lzw_decode(arr)
 	assert lzw_encode(m)[0] == None
+
+@pytest.mark.parametrize('arr', [  'abcca', '259001000'])
+def test_validity_encoder(arr):
+	
+	assert lzw_encode(arr)[0] == None
