@@ -42,17 +42,16 @@ def lzw_decode(e_seq, extra_bits = 0 ):
                 d[len(d)+1] = str(d.get( p )) + str(d.get(p)[:8])
                 #print('saved ', str(d.get( p )) + str(d.get(p)[:8]),' to dictionary in position ',  len(d))
             else:
-                print("WARNING: the input code is not valid because the index {} wasn't in dictionary".format(c))
+                print("WARNING: the input code is not valid ")
                 return None
             p = c
 
         else:
-            print("WARNING: the input code is not valid because the index {} wasn't in dictionary".format(p))
+            print("WARNING: the input code is not valid")
             return None
 
 
     d_seq.append(d.get( p ))
-    
     output_string = ''.join(d_seq)
     #print('decoded value:', ''.join(d_seq) )
     
