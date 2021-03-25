@@ -1,12 +1,13 @@
 The encoding and decoding functions can be accessed by installing the package:
 
 
-from a terminal open on this folder, type  $pip install -e lzw_folchini/
+From a terminal open on this folder, type  $pip install -e lzw_folchini/
 
-					   $ python
-					   >>> from src.decode import lzw_decode
-					   >>> from src.encode import lzw_encode
-
+usage:
+	$ python
+	>>> from src.lzw import lzw_encode, lzw_decode
+	>>> a = lzw_encode('10000100')
+	>>> print(lzw_decode(a))
 
 
 

@@ -1,7 +1,7 @@
 
 import pytest
-from src.encode import lzw_encode
-from src.decode import lzw_decode
+from src.lzw import lzw_encode, lzw_decode
+
 
 
 def test_empty():
