@@ -5,7 +5,8 @@ From a terminal open on this folder, type  $pip install -e lzw_folchini/
 
 usage:
 	$ python
-	>>> from src.lzw import lzw_encode, lzw_decode
+	>>> from lzw.encode import lzw_encode
+	>>> from lzw.decode import lzw_decode
 	>>> a = lzw_encode('10000100')
 	>>> print(lzw_decode(a))
 

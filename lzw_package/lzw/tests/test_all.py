@@ -1,8 +1,7 @@
 
 import pytest
-from src.lzw import lzw_encode, lzw_decode
-
-
+from lzw.encode import lzw_encode
+from lzw.decode import lzw_decode
 
 def test_empty():
 	arr = ''
