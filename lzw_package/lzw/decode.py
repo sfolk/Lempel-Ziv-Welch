@@ -28,24 +28,17 @@ def lzw_decode(e_seq ):
 
 
         c = int(e_seq[ cod_unit * i     : cod_unit * (i+1) ])
-        #print('here is the c', c)
 
         
         if d.get( p ) != None :
-            #print(d.get( p ))
             
             #if the sequence was already in the dictionary 
-            #print(d.get( p ),' found p in dict, in place',  p  )
             d_seq.append(d.get( p ))
             if d.get(c):
-                #print(d.get( c ),' found c in dict, in place',  c  )
                 d[len(d)+1] = str(d.get( p )) + str(d.get(c)[:input_unit])
-                #print('saved ',str(d.get( p )) + str(d.get(c)[:input_unit]),' to dictionary in position ',  len(d))
             
             elif c==len(d)+1:
-                #print('here is the p', p)
                 d[len(d)+1] = str(d.get( p )) + str(d.get(p)[:input_unit])
-                #print('saved ', str(d.get( p )) + str(d.get(p)[:input_unit]),' to dictionary in position ',  len(d))
             else:
                 print("WARNING: the input code is not valid ")
                 return None
@@ -58,9 +51,7 @@ def lzw_decode(e_seq ):
 
     d_seq.append(d.get( p ))
     output_string = ''.join(d_seq)
-    #print('decoded value:', ''.join(d_seq) )
     
     return output_string
 
 
-print(lzw_decode('001000000001001003'))

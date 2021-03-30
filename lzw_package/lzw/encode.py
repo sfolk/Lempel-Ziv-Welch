@@ -30,16 +30,12 @@ def lzw_encode(input_seq):
 
         if d.get( pc ) != None :
             #if the sequence was already in the dictionary 
-            #print(pc,' found in dict, in place',  d.get( pc )  )
             p = pc 
         else:
             d[pc] = len(d)+ 1
-            #print('saved ',pc,' to dictionary in position ',  2**8 + i)
             e_seq.append( '{0:03}'.format(d.get( p )) )
             p = c
 
     e_seq.append( '{0:03}'.format(d.get( p )) )
-    #print(  'encoded sequence', ''.join(e_seq))
     return ''.join(e_seq) 
 
-#print(lzw_encode('1001110'))
