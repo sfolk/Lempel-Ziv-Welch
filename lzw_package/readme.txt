@@ -1,14 +1,9 @@
-The encoding and decoding functions can be accessed by installing the package:
+The Lempel–Ziv–Welch (LZW) algorithm is a well known data compression
+method that leverages the presence of repeated “runs” of equal symbols in most
+sequence that appears (e.g., in text).
 
-
-From a terminal open on this folder, type  $pip install -e lzw_folchini/
-
-usage:
-	$ python
-	>>> from lzw.encode import lzw_encode
-	>>> from lzw.decode import lzw_decode
-	>>> a = lzw_encode('10000100')
-	>>> print(lzw_decode(a))
-
-
-
+We use a Python library (e.g., bitarray) allowing easy low-level manipulation of
+bits and bytes.
+The aim of this project is to implement two functions, lzw_encode and
+lzw_decode, that, given a binary sequence as argument, return the encoded
+(resp., decoded) sequence using the LZW algorithm.
