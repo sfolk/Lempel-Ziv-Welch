@@ -44,7 +44,7 @@ def lzw_encode(input_seq):
             #if the sequence was already in the dictionary 
             p = pc 
         else:
-            if len(d) < int(str(['9']*out_unit)):
+            if len(d) < int(''.join(['9']*out_unit)):
                 d[pc] = len(d)+ 1
             else:
                 print("WARNING: dictionary capacity exceeded")
