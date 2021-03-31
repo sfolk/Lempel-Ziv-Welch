@@ -1,0 +1,26 @@
+The encoding and decoding functions can be accessed by installing the package.
+
+It is advisable to create an environment where to install it.
+
+installing:
+	From a terminal open on this folder, type 
+
+	$ python -m venv lzw_folchini (optional, only the first time) 
+	$ . lzw_folchini/bin/activate (optional) 
+
+	$ pip install --upgrade ../lzw_folchini/
+
+usage:
+	$ python
+	>>> from lzw.encode import lzw_encode
+	>>> from lzw.decode import lzw_decode
+	>>> a = lzw_encode('10000100')
+	>>> print(lzw_decode(a))
+
+closing:
+	>>> quit()
+	$ deactivate (optional)
+
+
+
+
