@@ -8,7 +8,7 @@ installing:
 	$ python -m venv lzw_folchini (optional, only the first time) 
 	$ . lzw_folchini/bin/activate (optional) 
 
-	$ pip install --upgrade ../lzw_folchini/
+	$ pip install --upgrade ../lzw_package/
 
 usage:
 	$ python
