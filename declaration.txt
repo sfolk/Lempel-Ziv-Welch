@@ -1,1 +1,0 @@
-I declare that the code contained in the repository https://github.com/sfolk/Lempel-Ziv-Welch and submitted today 31-3-2021 was entirely written by me, Sara Folchini.
